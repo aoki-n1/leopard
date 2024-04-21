@@ -29,9 +29,9 @@ sleep 3
 
 echo '-- -- -- -- --'
 
-$TEXAUTOMATOR $TEXFILE
+$TEXAUTOMATOR $FILE
 sleep 3
-$TEXAUTOMATOR -C -c $TEXFILE
+$TEXAUTOMATOR -C -c $FILE
 sleep 3
 
 echo '-- -- -- -- --'
@@ -44,7 +44,7 @@ find ./build/${FILE}.pdf
 
 echo '-- -- -- -- --'
 
-touch $TEXFILE
+echo '' >> $TEXFILE
 
 $TEXAUTOMATOR $TEXFILE
 sleep 3
