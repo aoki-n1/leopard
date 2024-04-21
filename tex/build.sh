@@ -14,10 +14,39 @@ TEXFILE=sample.tex
 FILE=${TEXFILE%.*}
 TEXAUTOMATOR=latexmk
 
-echo $FILE
+echo '-- -- -- -- --'
+
+ls -a -lh
+sleep 3
+ls -a -lh ./build/
+sleep 3
+
+echo '-- -- -- -- --'
+
+echo "$FILE generate"
 find ./build/${FILE}.pdf
+sleep 3
+
+echo '-- -- -- -- --'
 
 $TEXAUTOMATOR $TEXFILE
+sleep 3
 $TEXAUTOMATOR -C -c $TEXFILE
+sleep 3
 
+echo '-- -- -- -- --'
+
+ls -a -lh
+sleep 3
+ls -a -lh ./build/
+sleep 3
 find ./build/${FILE}.pdf
+
+echo '-- -- -- -- --'
+
+touch $TEXFILE
+
+$TEXAUTOMATOR $TEXFILE
+sleep 3
+$TEXAUTOMATOR -C -c $TEXFILE
+sleep 3
