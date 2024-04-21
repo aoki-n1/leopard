@@ -13,7 +13,11 @@
 TEXFILE=sample.tex
 FILE=${TEXFILE%.*}
 TEXAUTOMATOR=latexmk
+
 echo $FILE
+find ./build/${FILE}.pdf
 
 $TEXAUTOMATOR $TEXFILE
 $TEXAUTOMATOR -C -c $TEXFILE
+
+find ./build/${FILE}.pdf
