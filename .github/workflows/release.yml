@@ -1,0 +1,19 @@
+on:
+  push:
+    tags:
+      - "v*"
+env:
+  FILENAME: main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout git repo
+        uses: actions/checkout@v2
+      - name: Build a PDF file by latexmk
+        uses: aruneko/texlive
+        run: latexmk $FILENAME.tex
+      - name: Create a release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.FILENAME }}.pdf
