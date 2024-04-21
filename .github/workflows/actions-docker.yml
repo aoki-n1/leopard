@@ -49,6 +49,13 @@ jobs:
       - name: run tex
         if: success()
         run: docker-compose run tex
+      
+      - name: Generate PDF document
+        uses: hspaans/latexmk-action@v1
+        with:
+          format: pdf
+          filename: sample.tex
+      
       - name: release
         if: success()
         uses: actions/create-release@v1
