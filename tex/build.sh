@@ -16,5 +16,4 @@ TEXAUTOMATOR=latexmk
 echo $FILE
 
 $TEXAUTOMATOR $TEXFILE
-ls
-cp ${FILE}.pdf ./build
+$TEXAUTOMATOR -C -c $TEXFILE
