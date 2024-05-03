@@ -7,6 +7,6 @@ $bibtex           = 'pbibtex';
 $dvipdf           = 'dvipdfmx %O -o %D %S';
 $makeindex        = 'mendex %O -o %D %S';
 
-$out_dir          = "./build/";
-$emulate_aux = 1;
-$aux_dir = ".";
+$out_dir          = "./out/";
+$emulate_aux      = 1;
+$aux_dir          = "./nonessential/";
