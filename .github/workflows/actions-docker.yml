@@ -16,6 +16,10 @@ jobs:
 
     ## workflow
     steps:
+      ## debug: monitor permission
+      - name: debug monitor
+        uses: GitHubSecurityLab/actions-permissions/monitor@v1
+
       # fork into github workstation vm
       - name: Checkout
         uses: actions/checkout@v4
