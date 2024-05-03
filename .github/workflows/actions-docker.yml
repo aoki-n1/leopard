@@ -43,12 +43,18 @@ jobs:
         id: version
         run: |
           echo "version=${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
+      - name: get repository
+        id: repository
+        run: |
+          echo "name=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
       - name: debug
         run: |
           echo ${{ steps.date.outputs.date }}
           echo ${{ steps.counter.outputs.counter }}
           echo ${{ steps.version.outputs.version }}
-      
+
+          echo ${{ steps.repository.outputs.repository }}
+
       # compile
       #- name: compile LaTeX document
       #  uses: xu-cheng/latex-action@v3
