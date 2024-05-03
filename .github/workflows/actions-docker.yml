@@ -46,7 +46,7 @@ jobs:
       - name: get repository
         id: repository
         run: |
-          echo "name=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
+          echo "repository=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
       - name: debug
         run: |
           echo ${{ steps.date.outputs.date }}
