@@ -70,6 +70,7 @@ jobs:
       # debug
       - name: debug
         run: ls out
+
       # export pdf
       - name: Release
         uses: softprops/action-gh-release@v2
