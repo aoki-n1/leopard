@@ -58,6 +58,10 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: sample.tex
+      # debug
+      - name: debug
+        run: ls
+      # convert
       - name: convert release PDF filename
         run: mv out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
       # export pdf
