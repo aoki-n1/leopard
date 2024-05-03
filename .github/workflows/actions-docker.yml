@@ -11,7 +11,8 @@ jobs:
     ## action-gh-release dependency
     permissions:
       contents: write
-      actions: write
+
+    timeout-minutes: 5
 
     ## workflow
     steps:
@@ -65,7 +66,7 @@ jobs:
         run: ls
       # convert
       - name: convert release PDF filename
-        run: mv out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
+        run: cp out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
       # export pdf
       - name: Release
         uses: softprops/action-gh-release@v2
