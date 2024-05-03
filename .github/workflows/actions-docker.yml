@@ -33,6 +33,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: action-gh-test
+          tag_name: action-gh-test-tag
           files: |
             out/sample.pdf
             LICENSE
