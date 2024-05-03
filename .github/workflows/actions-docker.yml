@@ -6,11 +6,13 @@ on:
 
 jobs:
   release-pdf:
+    runs-on: ubuntu-latest
+
     ## action-gh-release dependency
     permissions:
       contents: write
-    ## ToDo: version building
-    runs-on: ubuntu-latest
+      actions: write
+
     ## workflow
     steps:
       # fork into github workstation vm
@@ -61,9 +63,6 @@ jobs:
       # debug
       - name: debug
         run: ls
-      # pre
-      - name: pre
-        run: git update-index --chmod=+x out/sample.pdf
       # convert
       - name: convert release PDF filename
         run: mv out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
