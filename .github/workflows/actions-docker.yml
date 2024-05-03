@@ -71,7 +71,9 @@ jobs:
           python-version: '3.10'
       # convert
       - name: convert release PDF filename
-        run: python mymv.py out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
+        run: |
+          chmod 755 mymv.py
+          python mymv.py out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
       # debug
       - name: debug
         run: ls out
