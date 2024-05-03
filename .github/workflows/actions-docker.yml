@@ -63,10 +63,13 @@ jobs:
           root_file: sample.tex
       # debug
       - name: debug
-        run: ls
+        run: ls out
       # convert
       - name: convert release PDF filename
-        run: cp out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
+        run: ./mymv out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
+      # debug
+      - name: debug
+        run: ls out
       # export pdf
       - name: Release
         uses: softprops/action-gh-release@v2
