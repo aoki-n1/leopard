@@ -72,7 +72,7 @@ jobs:
       # convert
       - name: convert release PDF filename
         run: |
-          chmod 755 out
+          chmod +x ./mymv.py
           python mymv.py out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
       # debug
       - name: debug
