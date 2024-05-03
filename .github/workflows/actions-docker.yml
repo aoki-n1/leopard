@@ -14,15 +14,14 @@ jobs:
     ## workflow
     steps:
       # fork into github workstation vm
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
       # finalize
-
-      - name: get current date
+      - name: Get Current Date String
         id: date
         run: |
           echo "date=$(TZ=TIME_ZONE date +'%Y%m%d')" >$GITHUB_OUTPUT
-      - name: get counter
+      - name: Get Counter String
         id: counter
         run: |
           LAST_RELEASE=$(gh release view --json=tagName | jq -r '.tagName')
@@ -38,36 +37,35 @@ jobs:
           DATE: ${{ steps.date.outputs.date }}
           GH_TOKEN: ${{ github.token }}
           TIME_ZONE: JST-9 # Specify time zone here
-      - name: get repository
+      - name: Get Repository String
         id: repository
         run: |
           echo "repository=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
-
-      - name: get version
+      - name: Get Version String
         if: success()
         id: version
         run: |
           echo "version=${{ steps.repository.outputs.repository }}-${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
-
-      - name: debug
+      - name: debug string
         run: |
+          echo ${{ steps.repository.outputs.repository }}
           echo ${{ steps.date.outputs.date }}
           echo ${{ steps.counter.outputs.counter }}
           echo ${{ steps.version.outputs.version }}
 
-          echo ${{ steps.repository.outputs.repository }}
-
       # compile
-      #- name: compile LaTeX document
-      #  uses: xu-cheng/latex-action@v3
-      #  with:
-      #    root_file: sample.tex
+      - name: compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: sample.tex
+      - name: convert release PDF filename
+        run: mv out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
       # export pdf
-      #- name: Release
-      #  uses: softprops/action-gh-release@v2
-      #  with:
-      #    name: action-gh-test
-      #    tag_name: action-gh-test-tag
-      #    files: |
-      #      out/sample.pdf
-      #      LICENSE
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.version.outputs.version }}
+          files: |
+            out/${{ steps.version.outputs.version }}.pdf
+            LICENSE
