@@ -38,15 +38,17 @@ jobs:
           DATE: ${{ steps.date.outputs.date }}
           GH_TOKEN: ${{ github.token }}
           TIME_ZONE: JST-9 # Specify time zone here
-      - name: get version
-        if: success()
-        id: version
-        run: |
-          echo "version=${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
       - name: get repository
         id: repository
         run: |
           echo "repository=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
+
+      - name: get version
+        if: success()
+        id: version
+        run: |
+          echo "version=${{ steps.repository.outputs.repository }}-${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
+
       - name: debug
         run: |
           echo ${{ steps.date.outputs.date }}
