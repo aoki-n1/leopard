@@ -64,12 +64,14 @@ jobs:
       # debug
       - name: debug
         run: ls out
-      # permission add
-      - name: permission add
-        run: git update-index --add --chmod=+x mv
+      # setup Python, convert
+      - name: setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
       # convert
       - name: convert release PDF filename
-        run: ./mymv.sh out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
+        run: python mymv.py out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
       # debug
       - name: debug
         run: ls out
