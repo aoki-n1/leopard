@@ -18,6 +18,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: tex/sample.tex
+      # export pdf
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
