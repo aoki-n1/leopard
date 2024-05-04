@@ -55,6 +55,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: sample.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -jobname=test
 
       # export pdf
       - name: Release
