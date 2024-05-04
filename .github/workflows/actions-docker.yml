@@ -5,10 +5,9 @@ on:
       - main
 
 jobs:
-  release-pdf:
+  compile-LaTeX-to-release:
     runs-on: ubuntu-latest
 
-    ## action-gh-release dependency
     permissions:
       contents: write
 
@@ -16,10 +15,6 @@ jobs:
 
     ## workflow
     steps:
-      ## debug: monitor permission
-      - name: debug monitor
-        uses: GitHubSecurityLab/actions-permissions/monitor@v1
-
       # fork into github workstation vm
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,43 +39,22 @@ jobs:
           DATE: ${{ steps.date.outputs.date }}
           GH_TOKEN: ${{ github.token }}
           TIME_ZONE: JST-9 # Specify time zone here
-      - name: Get Repository String
-        id: repository
-        run: |
-          echo "repository=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
       - name: Get Version String
         if: success()
         id: version
         run: |
           echo "version=${{ steps.repository.outputs.repository }}-${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
-      - name: debug string
+      - name: Debug String
         run: |
-          echo ${{ steps.repository.outputs.repository }}
           echo ${{ steps.date.outputs.date }}
           echo ${{ steps.counter.outputs.counter }}
           echo ${{ steps.version.outputs.version }}
 
       # compile
-      - name: compile LaTeX document
+      - name: Compile LaTeX Document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: sample.tex
-      # debug
-      - name: debug
-        run: ls out
-      # setup Python, convert
-      - name: setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      # convert
-      - name: convert release PDF filename
-        run: |
-          chmod +x ./mymv.py
-          python mymv.py out/sample.pdf out/${{ steps.version.outputs.version }}.pdf
-      # debug
-      - name: debug
-        run: ls out
 
       # export pdf
       - name: Release
@@ -89,5 +63,5 @@ jobs:
           name: ${{ steps.version.outputs.version }}
           tag_name: ${{ steps.version.outputs.version }}
           files: |
-            out/${{ steps.version.outputs.version }}.pdf
+            out/sample.pdf
             LICENSE
