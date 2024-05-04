@@ -43,7 +43,7 @@ jobs:
         if: success()
         id: version
         run: |
-          echo "version=${{ steps.repository.outputs.repository }}-${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
+          echo "version=${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
       - name: Debug String
         run: |
           echo ${{ steps.date.outputs.date }}
