@@ -39,30 +39,41 @@ jobs:
           DATE: ${{ steps.date.outputs.date }}
           GH_TOKEN: ${{ github.token }}
           TIME_ZONE: JST-9 # Specify time zone here
-      - name: Get Version String
+      - name: Get Repository String
+        id: repository
+        run: |
+          echo "repository=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
+      - name: Get Full Version String
         if: success()
-        id: version
+        id: fullversion
+        run: |
+          echo "version=${{ steps.repository.outputs.repository }}-${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
+      - name: Get Short Version String
+        if: success()
+        id: shortversion
         run: |
           echo "version=${{ steps.date.outputs.date }}-${{ steps.counter.outputs.counter }}" >$GITHUB_OUTPUT
       - name: Debug String
         run: |
+          echo ${{ steps.repository.outputs.repository }}
           echo ${{ steps.date.outputs.date }}
           echo ${{ steps.counter.outputs.counter }}
-          echo ${{ steps.version.outputs.version }}
+          echo ${{ steps.shortversion.outputs.version }}
+          echo ${{ steps.fullversion.outputs.version }}
 
       # compile
       - name: Compile LaTeX Document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: sample.tex
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -jobname=test
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -jobname=${{ steps.fullversion.outputs.version }}
 
       # export pdf
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: ${{ steps.version.outputs.version }}
-          tag_name: ${{ steps.version.outputs.version }}
+          name: ${{ steps.shortversion.outputs.version }}
+          tag_name: ${{ steps.shortversion.outputs.version }}
           files: |
-            out/sample.pdf
+            out/${{ steps.fullversion.outputs.version }}.pdf
             LICENSE
