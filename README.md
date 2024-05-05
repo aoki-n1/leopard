@@ -24,6 +24,19 @@ Change the Settings > Actions > General > Workflow permissions of the relevant r
 ## Usage
 ..
 
+## Benchmark
+
+
+
+| SaaS | User Type | Test File | pages | Time | Variance |
+| -- | -- | -- | -- | -- | -- |
+| GitHub Actions | Public | IEEE Conf. template | 3 | - | - |
+| GitHub Actions | Private | IEEE Conf. template | 3 | - | - |
+| Overleaf | Free | IEEE Conf. template | 3 | - | - |
+| Overleaf | Money side | IEEE Conf, template | 3 | - | - |
+
+
+
 ## Lisense
 Distributed under the MIT License. See ``LISENSE'' for more information.
 
