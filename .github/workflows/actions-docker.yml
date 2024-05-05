@@ -1,8 +1,12 @@
 name: typeset
+
 on:
   push:
     branches:
       - main
+
+env:
+  target-tex-source: sample.tex
 
 jobs:
   compile-LaTeX-to-release:
@@ -11,20 +15,23 @@ jobs:
     permissions:
       contents: write
 
-    timeout-minutes: 5
+    timeout-minutes: 5 # timeout upper bounds
 
     ## workflow
     steps:
       # fork into github workstation vm
       - name: Checkout
         uses: actions/checkout@v4
+
       # finalize
       - name: Get Current Date String
+        if: success()
         id: date
         run: |
           echo "date=$(TZ=TIME_ZONE date +'%Y%m%d')" >$GITHUB_OUTPUT
       - name: Get Counter String
         id: counter
+        if: success()
         run: |
           LAST_RELEASE=$(gh release view --json=tagName | jq -r '.tagName')
           LAST_DATE=$(echo $LAST_RELEASE|sed 's/-.*$//')
@@ -40,6 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TIME_ZONE: JST-9 # Specify time zone here
       - name: Get Repository String
+        if: success()
         id: repository
         run: |
           echo "repository=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_OUTPUT
@@ -63,13 +71,15 @@ jobs:
 
       # compile
       - name: Compile LaTeX Document
+        if: success()
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: sample.tex
+          root_file: ${{ env.target-tex-source }}
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -jobname=${{ steps.fullversion.outputs.version }}
 
       # export pdf
       - name: Release
+        if: success()
         uses: softprops/action-gh-release@v2
         with:
           name: ${{ steps.shortversion.outputs.version }}
