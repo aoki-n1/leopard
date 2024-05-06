@@ -5,11 +5,12 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-
+<!-- ABOUT -->
 # Leopard CI/CD Client
 
 ci/cd pipeline description.
 
+<!-- INSTALL -->
 ## Quick started
 ...
 
@@ -21,22 +22,41 @@ Change the Settings > Actions > General > Workflow permissions of the relevant r
 
 ### Fetch non-default TeX file templates
 
+This is LaTeX templates for which the compilation results have been verified.
+<details>
+<summary>Supported LaTeX Templates</summary>
+
+.. 
+
+</details>
+
+This is LaTeX template that has not yet been tested by someone else.
+<details>
+<summary>The following distribution versions are still tested</summary>
+
+.. 
+
+</details>
+
+If you have a new template for which you would like to maintain the compilation results, please provide your contact with the source code of the template and the PDF that will be generated.
+
+<!-- USAGE -->
 ## Usage
 ..
 
+<!-- BENCHMARK -->
 ## Benchmark
 
+| SaaS | Test File | pages | Time | Variance |
+| -- | -- | -- | -- | -- |
+| GitHub Actions | IEEE Conf. template | 3 | - | - |
+| Overleaf | IEEE Conf. template | 3 | - | - |
+
+<!-- CONTANCT -->
+## Contact
 
 
-| SaaS | User Type | Test File | pages | Time | Variance |
-| -- | -- | -- | -- | -- | -- |
-| GitHub Actions | Public | IEEE Conf. template | 3 | - | - |
-| GitHub Actions | Private | IEEE Conf. template | 3 | - | - |
-| Overleaf | Free | IEEE Conf. template | 3 | - | - |
-| Overleaf | Money side | IEEE Conf, template | 3 | - | - |
-
-
-
+<!-- LISENCE -->
 ## Lisense
 Distributed under the MIT License. See ``LISENSE'' for more information.
 
