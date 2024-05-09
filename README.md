@@ -10,10 +10,11 @@
 <!-- ABOUT -->
 # Leopard CI/CD Client
 
-ci/cd pipeline description.
+Leopard is – the most widespread habitat in the cat family's component species – a thin client of a LaTeX compilation CI/CD, hence the name lepard (binomen Panthera pardus) as it belongs to the panthera family.
 
- - TeX source: It's up to you.
- - 
+
+
+
 
 <!-- INSTALL -->
 ## Quick started
@@ -48,6 +49,15 @@ If you have a new template for which you would like to maintain the compilation 
 <!-- USAGE -->
 ## Usage
 ..
+
+ <!-- ARCHTECURE -->
+## Archtecuture
+
+ - TeX source: It's up to you.
+ - CI runner: GitHub Actions Shared Runner
+  - [actions/checkout@v4](https://github.com/marketplace/actions/checkout),  [xu-cheng/latex-action@v3](https://github.com/marketplace/actions/github-action-for-latex) and [softprops/action-gh-release@v2](https://github.com/marketplace/actions/gh-release)
+ - LaTeX execution enviroment: GitHub-hosted runners
+ - CD: PDF to be placed on the release
 
 <!-- BENCHMARK -->
 ## Benchmark
