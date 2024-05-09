@@ -56,6 +56,7 @@ If you have a new template for which you would like to maintain the compilation 
  - TeX source: It's up to you.
  - CI runner: GitHub Actions Shared Runner
   - [actions/checkout@v4](https://github.com/marketplace/actions/checkout),  [xu-cheng/latex-action@v3](https://github.com/marketplace/actions/github-action-for-latex) and [softprops/action-gh-release@v2](https://github.com/marketplace/actions/gh-release)
+  - Ignition: push action
  - LaTeX execution enviroment: GitHub-hosted runners
  - CD: PDF to be placed on the release
 
