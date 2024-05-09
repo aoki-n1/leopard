@@ -1,3 +1,4 @@
+.PHONY: sample sample-clean
 
 sample: cp -r sample-ieeeconf/* .
 

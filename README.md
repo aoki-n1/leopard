@@ -12,13 +12,26 @@
 
 Leopard is – the most widespread habitat in the cat family's component species – a thin client of a LaTeX compilation CI/CD, hence the name lepard (binomen Panthera pardus) as it belongs to the panthera family.
 
-Leopards are excellent environmental adapters, resting in trees and on rocks when not hunting. Although they are on the smaller side of the big cats, they are high-performance hunters, even in forests, with their supple bodies and clever intelligence.
-Overall, this CI/CD is a sophisticated and compact client of the LaTeX compilation environment.
+Leopards are excellent environmental adapters, resting in trees and on rocks when not hunting. Although they are on the smaller side of the big cats, they are high-performance hunters, even in forests, with their supple bodies and clever intelligence. 
+Overall, this CI/CD is a sophisticated and compact client of the LaTeX compilation environment. 
 Features include: procurement of computational resources only when compiling LaTeX, no need to build the user's own environment, and rapid PDF distribution; the ability to customise the user's own package by changing the '[xu-cheng/latex-action@v3](https://github.com/marketplace/actions/github-action-for-latex)' use options, and the ability to apply to a variety of modern user environments.
 
 <!-- INSTALL -->
 ## Quick started
-...
+All you have to do is fork this repository, extract the tex files to the root directory and push. Import with the repository name of your choice. 
+How to build using a sample tex file with ```make```.
+```
+make sample
+```
+After executing git add, commit and push, about
+2 minutes this workflow is finished and your LaTeX compiled PDF is provided to the release. 
+See below for instructions on how to clean out the tex files extracted to the root directory.
+```
+make sample-clean
+```
+
+For constrained runtime environments where make is not available, read and run the scripts described in the Makefile. 
+See all [Makefile](./Makefile).
 
 ### requirement
 Workflow permissions need to be given read/write permissions as read permissions alone are not sufficient.
