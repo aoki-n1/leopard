@@ -86,4 +86,4 @@ jobs:
           tag_name: ${{ steps.shortversion.outputs.version }}
           files: |
             out/${{ steps.fullversion.outputs.version }}.pdf
-            .LICENSE
+            LICENSE
