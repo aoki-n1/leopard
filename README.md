@@ -5,7 +5,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-![WebScrapperJS](https://socialify.git.ci/aoki-n1/leopard/image?description=1&font=Bitter&language=1&logo=https%3A%2F%2Fgithub.com%2Faoki-n1%2Fleopard%2Fassets%2F46991356%2F62cf7602-6849-4122-9192-429ef9457dcf&name=1&owner=1&theme=Light)
+![Social preview][socialpreview-url]
 
 <!-- ABOUT -->
 # Leopard CI/CD Client
@@ -74,7 +74,7 @@ If you have a new template for which you would like to maintain the compilation 
 
 <!-- LISENCE -->
 ## Lisense
-Distributed under the MIT License. See ``LISENSE'' for more information.
+Distributed under the MIT License. See [LISENSE](./LICENSE) for more information.
 
 
 ## c.f.
@@ -96,3 +96,4 @@ A social images in this repository are partly arranged from conditionally licenc
 [issues-url]: https://github.com/aoki-n1/leopard/issues
 [license-shield]: https://img.shields.io/github/license/aoki-n1/leopard.svg?style=for-the-badge
 [license-url]: https://github.com/aoki-n1/leopard/blob/master/LICENSE.txt
+[socialpreview-url]: https://socialify.git.ci/aoki-n1/leopard/image?description=1&font=Bitter&language=1&logo=https%3A%2F%2Fgithub.com%2Faoki-n1%2Fleopard%2Fassets%2F46991356%2F62cf7602-6849-4122-9192-429ef9457dcf&name=1&owner=1&theme=Light
