@@ -5,10 +5,15 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+![WebScrapperJS](https://socialify.git.ci/aoki-n1/leopard/image?description=1&font=Bitter&language=1&logo=https%3A%2F%2Fgithub.com%2Faoki-n1%2Fleopard%2Fassets%2F46991356%2F62cf7602-6849-4122-9192-429ef9457dcf&name=1&owner=1&theme=Light)
+
 <!-- ABOUT -->
 # Leopard CI/CD Client
 
 ci/cd pipeline description.
+
+ - TeX source: It's up to you.
+ - 
 
 <!-- INSTALL -->
 ## Quick started
@@ -63,6 +68,10 @@ Distributed under the MIT License. See ``LISENSE'' for more information.
 
 ## c.f.
  - [tatsugon:2022]:https://zenn.dev/tatsugon/articles/github-actions-permission-error
+
+## Acknowledgement
+A social images in this repository are partly arranged from conditionally licence-free '[Leopard Logo Vectors by Vecteezy](https://www.vecteezy.com/free-vector/leopard-logo)'.
+
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
