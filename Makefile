@@ -1,0 +1,4 @@
+
+sample: cp sample/* .
+
+clean: 
