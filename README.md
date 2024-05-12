@@ -65,12 +65,15 @@ If you have a new template for which you would like to maintain the compilation 
  <!-- ARCHTECURE -->
 ## Archtecuture
 
+![CI/CD components](else/components.png)
+
+ - Device: All you need is access to the repository and an editor of your choice.
  - TeX source: It's up to you.
- - CI runner: GitHub Actions Shared Runner
-  - [actions/checkout@v4](https://github.com/marketplace/actions/checkout),  [xu-cheng/latex-action@v3](https://github.com/marketplace/actions/github-action-for-latex) and [softprops/action-gh-release@v2](https://github.com/marketplace/actions/gh-release)
-  - Ignition: push action
- - LaTeX execution enviroment: GitHub-hosted runners
- - CD: PDF to be placed on the release
+ - CI/CD: GitHub Actions(Shared Runner)
+   - [actions/checkout@v4](https://github.com/marketplace/actions/checkout),  [xu-cheng/latex-action@v3](https://github.com/marketplace/actions/github-action-for-latex) and [softprops/action-gh-release@v2](https://github.com/marketplace/actions/gh-release)
+   - Ignition: push action
+   - PDF export path: The release page of the Git repository.
+   - LaTeX execution enviroment: GitHub-hosted runners
 
 <!-- BENCHMARK -->
 ## Benchmark
