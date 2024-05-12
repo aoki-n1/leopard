@@ -96,7 +96,9 @@ Distributed under the MIT License. See [LISENSE](./LICENSE) for more information
  - [tatsugon:2022]:https://zenn.dev/tatsugon/articles/github-actions-permission-error
 
 ## Acknowledgement
-A social images in this repository are partly arranged from conditionally licence-free '[Leopard Logo Vectors by Vecteezy](https://www.vecteezy.com/free-vector/leopard-logo)'.
+A social images and a device icon in this repository are partly arranged from conditionally licence-free '[Leopard Logo Vectors by Vecteezy](https://www.vecteezy.com/free-vector/leopard-logo)' and '[Device Icon Vectors by Vecteezy](https://www.vecteezy.com/free-vector/device-icon)'. 
+
+
 
 
 
